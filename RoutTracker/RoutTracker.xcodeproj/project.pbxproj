@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,8 @@
 		E0D0B3B327049EAC00A485D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0D0B3B127049EAC00A485D4 /* LaunchScreen.storyboard */; };
 		E0D0B3BE27049EAC00A485D4 /* RoutTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D0B3BD27049EAC00A485D4 /* RoutTrackerTests.swift */; };
 		E0D0B3C927049EAC00A485D4 /* RoutTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D0B3C827049EAC00A485D4 /* RoutTrackerUITests.swift */; };
+		E0D0B3D72707455E00A485D4 /* RoutePathRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D0B3D62707455D00A485D4 /* RoutePathRealm.swift */; };
+		E0D0B3D927077E5700A485D4 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D0B3D827077E5700A485D4 /* RealmService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		E0D0B3C427049EAC00A485D4 /* RoutTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoutTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D0B3C827049EAC00A485D4 /* RoutTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutTrackerUITests.swift; sourceTree = "<group>"; };
 		E0D0B3CA27049EAC00A485D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0D0B3D62707455D00A485D4 /* RoutePathRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePathRealm.swift; sourceTree = "<group>"; };
+		E0D0B3D827077E5700A485D4 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		FB1C779564CDBD2DD0FF09DC /* Pods-RoutTracker-RoutTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutTracker-RoutTrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-RoutTracker-RoutTrackerUITests/Pods-RoutTracker-RoutTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,7 +115,6 @@
 				2DB5E6F6103E7FEA6816BA83 /* Pods-RoutTrackerTests.debug.xcconfig */,
 				485E3B3AAB1E43496E26B62B /* Pods-RoutTrackerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -143,6 +146,8 @@
 				E0D0B3A627049EA500A485D4 /* AppDelegate.swift */,
 				E0D0B3A827049EA500A485D4 /* SceneDelegate.swift */,
 				E0D0B3AA27049EA500A485D4 /* ViewController.swift */,
+				E0D0B3D827077E5700A485D4 /* RealmService.swift */,
+				E0D0B3D62707455D00A485D4 /* RoutePathRealm.swift */,
 				E0D0B3AC27049EA500A485D4 /* Main.storyboard */,
 				E0D0B3AF27049EAC00A485D4 /* Assets.xcassets */,
 				E0D0B3B127049EAC00A485D4 /* LaunchScreen.storyboard */,
@@ -181,6 +186,7 @@
 				E0D0B3A027049EA500A485D4 /* Frameworks */,
 				E0D0B3A127049EA500A485D4 /* Resources */,
 				88FEA03F830C2BCBB7BDF26D /* [CP] Copy Pods Resources */,
+				F45B0A285A748347ADF51F13 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -219,6 +225,7 @@
 				E0D0B3C127049EAC00A485D4 /* Frameworks */,
 				E0D0B3C227049EAC00A485D4 /* Resources */,
 				F42488129761F5FFDE6EC19F /* [CP] Copy Pods Resources */,
+				E99F1E3F98FD1373180D86B0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -383,6 +390,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E99F1E3F98FD1373180D86B0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutTracker-RoutTrackerUITests/Pods-RoutTracker-RoutTrackerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutTracker-RoutTrackerUITests/Pods-RoutTracker-RoutTrackerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutTracker-RoutTrackerUITests/Pods-RoutTracker-RoutTrackerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F42488129761F5FFDE6EC19F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -400,6 +424,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutTracker-RoutTrackerUITests/Pods-RoutTracker-RoutTrackerUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F45B0A285A748347ADF51F13 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutTracker/Pods-RoutTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutTracker/Pods-RoutTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutTracker/Pods-RoutTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -407,9 +448,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0D0B3D72707455E00A485D4 /* RoutePathRealm.swift in Sources */,
 				E0D0B3AB27049EA500A485D4 /* ViewController.swift in Sources */,
 				E0D0B3A727049EA500A485D4 /* AppDelegate.swift in Sources */,
 				E0D0B3A927049EA500A485D4 /* SceneDelegate.swift in Sources */,
+				E0D0B3D927077E5700A485D4 /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
