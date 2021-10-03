@@ -8,6 +8,7 @@
 import UIKit
 import GoogleMaps
 import RealmSwift
+import UserNotifications
 
 final class ViewController: UIViewController {
     
@@ -21,16 +22,20 @@ final class ViewController: UIViewController {
     private var routePath: GMSMutablePath?
     private var coordinates: [RoutePathRealm] = []
     private let realmService = RealmService()
+    private let minutes = 20
+    private let seconds = 60
     
     //MARK: ViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureLocationManager()
-        configureMap(location: startLocation)
-        putMarker(location: startLocation)
+        self.configureLocationManager()
+        self.configureMap(location: self.startLocation)
+        self.putMarker(location: self.startLocation)
     }
+
     
     //MARK: private methods
+    
     private func configureMap(location: CLLocationCoordinate2D) {
         let camera = GMSCameraPosition(target: location, zoom: 17)
         if mapView != nil {

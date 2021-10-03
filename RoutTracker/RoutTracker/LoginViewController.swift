@@ -30,7 +30,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginTapped(_ sender: Any) {
-        let vc = ViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
+        guard let viewController = vc else { return }
+        navigationController?.pushViewController(viewController, animated: true)
+        
     }
 }
