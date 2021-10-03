@@ -33,7 +33,9 @@ final class ViewController: UIViewController {
     //MARK: private methods
     private func configureMap(location: CLLocationCoordinate2D) {
         let camera = GMSCameraPosition(target: location, zoom: 17)
-        mapView.camera = camera
+        if mapView != nil {
+            mapView.camera = camera
+        }
     }
     
     private func configureLocationManager() {

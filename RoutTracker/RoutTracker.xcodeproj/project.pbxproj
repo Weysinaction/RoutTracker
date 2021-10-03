@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,9 @@
 		E0D0B3C927049EAC00A485D4 /* RoutTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D0B3C827049EAC00A485D4 /* RoutTrackerUITests.swift */; };
 		E0D0B3D72707455E00A485D4 /* RoutePathRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D0B3D62707455D00A485D4 /* RoutePathRealm.swift */; };
 		E0D0B3D927077E5700A485D4 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D0B3D827077E5700A485D4 /* RealmService.swift */; };
+		E0D0B3DB270A31D900A485D4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D0B3DA270A31D900A485D4 /* LoginViewController.swift */; };
+		E0D0B3DE270A359700A485D4 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E0D0B3DD270A359700A485D4 /* RxCocoa */; };
+		E0D0B3E0270A359700A485D4 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E0D0B3DF270A359700A485D4 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,7 @@
 		E0D0B3CA27049EAC00A485D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0D0B3D62707455D00A485D4 /* RoutePathRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePathRealm.swift; sourceTree = "<group>"; };
 		E0D0B3D827077E5700A485D4 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		E0D0B3DA270A31D900A485D4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FB1C779564CDBD2DD0FF09DC /* Pods-RoutTracker-RoutTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutTracker-RoutTrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-RoutTracker-RoutTrackerUITests/Pods-RoutTracker-RoutTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0D0B3E0270A359700A485D4 /* RxSwift in Frameworks */,
+				E0D0B3DE270A359700A485D4 /* RxCocoa in Frameworks */,
 				DCA42471821D212F0695FE39 /* Pods_RoutTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +152,7 @@
 				E0D0B3A627049EA500A485D4 /* AppDelegate.swift */,
 				E0D0B3A827049EA500A485D4 /* SceneDelegate.swift */,
 				E0D0B3AA27049EA500A485D4 /* ViewController.swift */,
+				E0D0B3DA270A31D900A485D4 /* LoginViewController.swift */,
 				E0D0B3D827077E5700A485D4 /* RealmService.swift */,
 				E0D0B3D62707455D00A485D4 /* RoutePathRealm.swift */,
 				E0D0B3AC27049EA500A485D4 /* Main.storyboard */,
@@ -193,6 +200,10 @@
 			dependencies = (
 			);
 			name = RoutTracker;
+			packageProductDependencies = (
+				E0D0B3DD270A359700A485D4 /* RxCocoa */,
+				E0D0B3DF270A359700A485D4 /* RxSwift */,
+			);
 			productName = RoutTracker;
 			productReference = E0D0B3A327049EA500A485D4 /* RoutTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -268,6 +279,9 @@
 				Base,
 			);
 			mainGroup = E0D0B39A27049EA500A485D4;
+			packageReferences = (
+				E0D0B3DC270A359700A485D4 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = E0D0B3A427049EA500A485D4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -448,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0D0B3DB270A31D900A485D4 /* LoginViewController.swift in Sources */,
 				E0D0B3D72707455E00A485D4 /* RoutePathRealm.swift in Sources */,
 				E0D0B3AB27049EA500A485D4 /* ViewController.swift in Sources */,
 				E0D0B3A727049EA500A485D4 /* AppDelegate.swift in Sources */,
@@ -785,6 +800,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E0D0B3DC270A359700A485D4 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E0D0B3DD270A359700A485D4 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0D0B3DC270A359700A485D4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		E0D0B3DF270A359700A485D4 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0D0B3DC270A359700A485D4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E0D0B39B27049EA500A485D4 /* Project object */;
 }
