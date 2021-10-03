@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,9 +17,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         GMSServices.provideAPIKey("AIzaSyBDi8XIyE96TmWdxa2pLEpOKY8_cTa7BfY")
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            guard granted else { return }
+            self.addNotifications()
+        }
         return true
     }
 
+    private func addNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(pushNotification), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(pushNotification), name: UIApplication.willTerminateNotification, object: nil)
+    }
+    
+    private func makeNotificationContent() -> UNNotificationContent {
+        let content = UNMutableNotificationContent()
+        
+        content.title = "Пора посмотреть маршрут"
+        content.body = "Самое время поискать новые места для посещений"
+        content.badge = 1
+        return content
+    }
+    
+    private func makeIntervalNotificationTrigger() -> UNNotificationTrigger {
+        let minutes = 30
+        let seconds = 60
+        return UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(minutes * seconds),
+                                                 repeats: false)
+    }
+    
+    private func sendNotificationRequest(content: UNNotificationContent, trigger: UNNotificationTrigger) {
+        let request = UNNotificationRequest(identifier: "reminder",
+                                            content: content,
+                                            trigger: trigger)
+        
+        let center = UNUserNotificationCenter.current()
+        center.add(request) { error in
+            guard let error = error else { return }
+            print(error.localizedDescription)
+        }
+    }
+    
+    @objc private func pushNotification() {
+        self.sendNotificationRequest(content: self.makeNotificationContent(),
+                                         trigger: self.makeIntervalNotificationTrigger())
+    }
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
